@@ -6,8 +6,8 @@ class Image
 private:
 	int width;
 	int height;
-	float xPos, yPos;
-	SDL_Texture* image;
+	int xPos, yPos;
+	SDL_Texture* texture;
 public:
 	void load(std::string path);
 	void draw();
@@ -15,4 +15,6 @@ public:
 	int getHeight();
 	int getPosX();
 	int getPosY();
+	void setPosX(int x);
+	void setPosY(int y);
 };

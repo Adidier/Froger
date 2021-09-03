@@ -5,15 +5,19 @@
 #include "SDL.h"
 #include "Platform.h"
 
+#include "Image.h""
+
+
 int main(int argc, char* args[])
 {
-    Platform platform;
-    platform.init(640, 480);
+
+    Platform* platform = Platform::getPtr();
+    platform->init(640, 480);
     while(true)
     {
-        platform.input();
-        platform.update();
-        platform.draw();
+        platform->input();
+        platform->update();
+        platform->draw();
     }
     return 0;
 }
