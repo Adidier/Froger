@@ -76,8 +76,39 @@ void Platform::draw()
 
 void Platform::input()
 {
+	SDL_Event e;
+	while(SDL_PollEvent(&e))
+	{
+	}
+	const Uint8* keyboard = SDL_GetKeyboardState(NULL);
+
+	if (keyboard[SDL_SCANCODE_W])
+	{
+		if (imagen1.getPosY() - 1 > 0) {
+			imagen1.setPosY(imagen1.getPosY() - 1);
+		}
+	}
+	else if (keyboard[SDL_SCANCODE_S])
+	{
+		if (imagen1.getPosY() + 1 + imagen1.getHeight() < getHeight()) {
+			imagen1.setPosY(imagen1.getPosY() + 1);
+		}
+	}
+	if(keyboard[SDL_SCANCODE_A]){
+		if (imagen1.getPosX() - 1 > 0) {
+			imagen1.setPosX(imagen1.getPosX() - 1);
+		}
+	} 
+	else if ( keyboard[SDL_SCANCODE_D])
+	{
+		if(imagen1.getPosX() + 1 + imagen1.getWidth() < getWidth()){
+			imagen1.setPosX(imagen1.getPosX() + 1);
+		}
+		
+	}
 
 }
+
 
 int Platform::getWidth()
 {
