@@ -142,12 +142,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Carrusel.cpp" />
     <ClCompile Include="Froger.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Platform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carrusel.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Platform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

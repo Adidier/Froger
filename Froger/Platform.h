@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "Image.h"
+#include "Obstacle.h"
 
 class Platform
 {
@@ -13,6 +14,7 @@ private:
 
 	static Platform* ptr;
 	Image imagen1;
+	Obstacle car;
 public:
 	static Platform* getPtr();
 	void init(int w, int h);

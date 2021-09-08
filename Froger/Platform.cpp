@@ -21,7 +21,6 @@ SDL_Renderer* Platform::getRender()
 	return render;
 }
 
-
 void Platform::init(int w, int h)
 {
 	setWidth(w);
@@ -57,11 +56,12 @@ void Platform::init(int w, int h)
 	imagen1.load("assets/frog.png");
 	imagen1.setPosX(0);
 	imagen1.setPosY(0);
+	car.init(500, 100, 0.0001, -1, "assets/frog.png");
 }
 
 void Platform:: update()
 {
-
+	car.move();
 }
 
 void Platform::draw()
@@ -70,6 +70,7 @@ void Platform::draw()
 	SDL_RenderClear(render);
 
 	imagen1.draw();
+	car.draw();
 
 	SDL_RenderPresent(render);
 }

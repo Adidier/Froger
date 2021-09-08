@@ -18,6 +18,7 @@ int main(int argc, char* args[])
         platform->input();
         platform->update();
         platform->draw();
+        SDL_Delay(100);
     }
     return 0;
 }
