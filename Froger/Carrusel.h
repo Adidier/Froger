@@ -7,12 +7,14 @@ using namespace std;
 class Carrusel
 {
 private:
-	vector<Obstacle> obstacles;
-	int posY;
+	vector<Obstacle*> obstacles;
+	int posY;  
+	int number;
 	int direction;
+	int widthScreen;
 	string path;
 public:
-	void init(string path, int Posy, int dir);
+	void init(int number, int numObstacles,string path, int Posy, int dir, float vel, int dist, int width);
 	void draw();
 	void update();
 };

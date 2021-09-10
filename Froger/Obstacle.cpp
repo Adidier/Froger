@@ -1,6 +1,6 @@
 #include "Obstacle.h"
 
-void Obstacle::init(int Posx, int Posy, float Velx, int direction, std::string path)
+void Obstacle::init(float Posx, float Posy, float Velx, int direction, std::string path)
 {
 	PosX = Posx;
 	PosY = Posy;
@@ -28,4 +28,19 @@ void Obstacle::draw()
 bool Obstacle::reset()
 {
 	return false;
+}
+
+float Obstacle::getWidth()
+{
+	return sprite.getWidth();
+}
+
+float Obstacle::getPositionX()
+{
+	return PosX;
+}
+
+void Obstacle::setPositionX(float PosX)
+{
+	this->PosX = PosX;
 }

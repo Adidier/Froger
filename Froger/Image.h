@@ -15,6 +15,6 @@ public:
 	int getHeight();
 	int getPosX();
 	int getPosY();
-	void setPosX(int x);
-	void setPosY(int y);
+	void setPosX(float x);
+	void setPosY(float y);
 };

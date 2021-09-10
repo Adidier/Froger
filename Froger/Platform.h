@@ -1,8 +1,8 @@
 #pragma once
 #include "SDL.h"
 #include "Image.h"
-#include "Obstacle.h"
-
+#include "Carrusel.h"
+#include <vector>
 class Platform
 {
 private:
@@ -14,7 +14,7 @@ private:
 
 	static Platform* ptr;
 	Image imagen1;
-	Obstacle car;
+	std::vector<Carrusel*> carrusels;
 public:
 	static Platform* getPtr();
 	void init(int w, int h);

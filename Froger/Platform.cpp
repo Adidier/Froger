@@ -1,4 +1,6 @@
 #include "Platform.h"
+#include <stdlib.h>
+#include <time.h>
 
 Platform* Platform::ptr = nullptr;
 
@@ -56,12 +58,29 @@ void Platform::init(int w, int h)
 	imagen1.load("assets/frog.png");
 	imagen1.setPosX(0);
 	imagen1.setPosY(0);
-	car.init(500, 100, 0.0001, -1, "assets/frog.png");
+	srand(time(NULL));
+
+	for(int i = 1; i < 6; i++)
+	{
+		Carrusel* car = new Carrusel();
+		if (rand() % 100 > 50)
+		{
+			car->init(i, i * 5, "assets/car.png", h - 50 * i, -1, 2, 200, w);
+		}
+		else
+		{
+			car->init(i, i * 5, "assets/car.png", h - 50 * i, 1, 2, 200, w);
+		}
+		carrusels.push_back(car);
+	}
 }
 
 void Platform:: update()
 {
-	car.move();
+	for (auto car : carrusels)
+	{
+		car->update();
+	}
 }
 
 void Platform::draw()
@@ -70,8 +89,10 @@ void Platform::draw()
 	SDL_RenderClear(render);
 
 	imagen1.draw();
-	car.draw();
-
+	for (auto car : carrusels)
+	{
+		car->draw();
+	}	
 	SDL_RenderPresent(render);
 }
 
@@ -85,25 +106,25 @@ void Platform::input()
 
 	if (keyboard[SDL_SCANCODE_W])
 	{
-		if (imagen1.getPosY() - 1 > 0) {
-			imagen1.setPosY(imagen1.getPosY() - 1);
+		if (imagen1.getPosY() - 10 > 0) {
+			imagen1.setPosY(imagen1.getPosY() - 10);
 		}
 	}
 	else if (keyboard[SDL_SCANCODE_S])
 	{
-		if (imagen1.getPosY() + 1 + imagen1.getHeight() < getHeight()) {
-			imagen1.setPosY(imagen1.getPosY() + 1);
+		if (imagen1.getPosY() + 10 + imagen1.getHeight() < getHeight()) {
+			imagen1.setPosY(imagen1.getPosY() + 10);
 		}
 	}
 	if(keyboard[SDL_SCANCODE_A]){
-		if (imagen1.getPosX() - 1 > 0) {
-			imagen1.setPosX(imagen1.getPosX() - 1);
+		if (imagen1.getPosX() - 10 > 0) {
+			imagen1.setPosX(imagen1.getPosX() - 10);
 		}
 	} 
 	else if ( keyboard[SDL_SCANCODE_D])
 	{
-		if(imagen1.getPosX() + 1 + imagen1.getWidth() < getWidth()){
-			imagen1.setPosX(imagen1.getPosX() + 1);
+		if(imagen1.getPosX() + 10 + imagen1.getWidth() < getWidth()){
+			imagen1.setPosX(imagen1.getPosX() + 10);
 		}
 		
 	}

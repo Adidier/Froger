@@ -45,9 +45,9 @@ int Image::getPosY()
 	return yPos;
 }
 
-void Image::setPosX(int x){
+void Image::setPosX(float x){
 	xPos = x;
 }
-void Image::setPosY(int y){
+void Image::setPosY(float y){
 	yPos = y;
 }

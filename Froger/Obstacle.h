@@ -4,14 +4,17 @@
 class Obstacle
 {
 private:
-	int PosX, PosY;
+	float PosX, PosY;
 	float VelX;
 	int direction;
 	Image sprite;
 public:
-	void init(int Posx, int Posy, float Velx, int direction, std::string path);
+	void init(float Posx, float Posy, float Velx, int direction, std::string path);
 	void move();
 	void draw();
 	bool reset();
+	float getPositionX();
+	void setPositionX(float PosX);
+	float getWidth();
 };
 
