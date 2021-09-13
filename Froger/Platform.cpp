@@ -1,6 +1,7 @@
 #include "Platform.h"
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 
 Platform* Platform::ptr = nullptr;
 
@@ -60,16 +61,16 @@ void Platform::init(int w, int h)
 	imagen1.setPosY(0);
 	srand(time(NULL));
 
-	for(int i = 1; i < 6; i++)
+	for(int i = 1; i < 4; i++)
 	{
 		Carrusel* car = new Carrusel();
 		if (rand() % 100 > 50)
 		{
-			car->init(i, i * 5, "assets/car.png", h - 50 * i, -1, 2, 200, w);
+			car->init(i, i * 5, "assets/car.png", h - 60 * i, -1, 2, 200, w);
 		}
 		else
 		{
-			car->init(i, i * 5, "assets/car.png", h - 50 * i, 1, 2, 200, w);
+			car->init(i, i * 5, "assets/car.png", h - 60 * i, 1, 2, 200, w);
 		}
 		carrusels.push_back(car);
 	}
@@ -80,6 +81,14 @@ void Platform:: update()
 	for (auto car : carrusels)
 	{
 		car->update();
+		for (auto obs : *car->GetObstacles())
+		{
+			if (Obstacle::IsCollision(imagen1.getPosX(), imagen1.getPosY(), imagen1.getWidth(), imagen1.getHeight(),
+				obs->getPositionX(), obs->getPositionY(), obs->getWidth(), obs->getHeight()))
+			{
+				std::cout << "Muerto";
+			}
+		}
 	}
 }
 

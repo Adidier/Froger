@@ -17,5 +17,6 @@ public:
 	void init(int number, int numObstacles,string path, int Posy, int dir, float vel, int dist, int width);
 	void draw();
 	void update();
+	vector<Obstacle*> *GetObstacles();
 };
 

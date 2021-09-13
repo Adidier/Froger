@@ -16,5 +16,9 @@ public:
 	float getPositionX();
 	void setPositionX(float PosX);
 	float getWidth();
+	float getHeight();
+	float getPositionY();
+	static bool IsCollision(float posXObj1, float posYObj1, int widthObj1, int heightObj1,
+		float posXObj2, float posYObj2, int widthObj2, int heightObj2);
 };
 

@@ -1,11 +1,5 @@
 #include "Carrusel.h"
 
-//image width
-// 
-//width screen
-//velocity
-//distance
-
 void Carrusel::init(int number, int numObstacles, string path, int Posy, int dir, float vel, int dist, int width)
 {
 	this->number = number;
@@ -41,4 +35,9 @@ void Carrusel::update()
 			obstacles[i]->setPositionX(obstacles[i]->getWidth() * -1);
 		}
 	}
+}
+
+vector<Obstacle*>* Carrusel::GetObstacles()
+{
+	return &obstacles;
 }
