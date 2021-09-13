@@ -57,8 +57,8 @@ void Platform::init(int w, int h)
 
 
 	imagen1.load("assets/frog.png");
-	imagen1.setPosX(0);
-	imagen1.setPosY(0);
+	imagen1.setPosX(w/2 - imagen1.getWidth());
+	imagen1.setPosY(h- imagen1.getHeight());
 	srand(time(NULL));
 
 	for(int i = 1; i < 4; i++)
