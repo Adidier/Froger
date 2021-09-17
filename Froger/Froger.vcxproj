@@ -147,12 +147,14 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Carrusel.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

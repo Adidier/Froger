@@ -1,5 +1,5 @@
 #include "Image.h"
-#include "Platform.h"
+#include "System.h"
 
 void Image::load(std::string path)
 {
@@ -8,7 +8,7 @@ void Image::load(std::string path)
 	{
 		throw "No hay imagen";
 	}
-	auto render = Platform::getPtr()->getRender();
+	auto render = System::getPtr()->getRender();
 	texture= SDL_CreateTextureFromSurface(render, dataImage);
 	SDL_QueryTexture(texture, NULL, NULL, &width, &height);
 	SDL_free(dataImage);
@@ -21,7 +21,7 @@ void Image::draw()
 	dst.y = yPos;
 	dst.w = width;
 	dst.h = height;
-	auto render = Platform::getPtr()->getRender();
+	auto render = System::getPtr()->getRender();
 	SDL_RenderCopy(render, texture, NULL, &dst);
 }
 

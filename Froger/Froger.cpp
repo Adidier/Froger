@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "SDL.h"
-#include "Platform.h"
+#include "System.h"
 
 #include "Image.h""
 
@@ -11,7 +11,7 @@
 int main(int argc, char* args[])
 {
 
-    Platform* platform = Platform::getPtr();
+    System* platform = System::getPtr();
     platform->init(640, 480);
     while(true)
     {

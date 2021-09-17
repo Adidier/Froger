@@ -10,7 +10,7 @@ private:
 	Image sprite;
 public:
 	void init(float Posx, float Posy, float Velx, int direction, std::string path);
-	void move();
+	float move();
 	void draw();
 	bool reset();
 	float getPositionX();

@@ -11,13 +11,16 @@ void Obstacle::init(float Posx, float Posy, float Velx, int direction, std::stri
 	sprite.setPosY(PosY);
 }
 
-void Obstacle::move()
+float Obstacle::move()
 {
+	float dir=0;
 	if (direction >= 1)
-		PosX += VelX;
+		dir += VelX;
 	else if (direction <= -1)
-		PosX -= VelX;
+		dir -= VelX;
+	PosX = PosX + dir;
 	sprite.setPosX(PosX);
+	return dir;
 }
 
 void Obstacle::draw()
